@@ -1,4 +1,12 @@
 
 
-ALLEGRO_FLAGS= `pkg-config --cflags --libs allegro-5.0 allegro_acodec-5.0 allegro_audio-5.0 allegro_color-5.0 allegro_dialog-5.0 allegro_font-5.0 allegro_image-5.0 allegro_main-5.0 allegro_memfile-5.0 allegro_physfs-5.0 allegro_primitives-5.0 allegro_ttf-5.0`
-LIBS=($ALLEGRO_FLAGS)
+COMPILER=g++
+FLAGS=-std=c++11 -Wall
+LIBS=$(shell pkg-config --libs allegro-5.0)
+LIBSRAW=-L/usr/lib -lallegro_main -lallegro_acodec  -lallegro_audio \
+		 -lallegro_color  -lallegro_dialog  -lallegro_image\
+		 -lallegro_memfile -lallegro_physfs -lallegro_primitives -lallegro_ttf
+INCLUDE=-I/usr/include/allegro5
+
+main: main.cpp
+	$(COMPILER) main.cpp $(FLAGS) $(LIBS) $(INCLUDE)

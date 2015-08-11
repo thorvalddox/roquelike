@@ -4,8 +4,8 @@ apt-get install libpng-dev libcurl4-openssl-dev libfreetype6-dev libjpeg-dev lib
  libgtk2.0-dev libasound-dev libpulse-dev libflac-dev libdumb1-dev
 cd ../
 git clone https://github.com/liballeg/allegro5.git
-cd allegro
+cd allegro5
 git checkout 5.0
-cmake ./
+ccmake -DCMAKE_INSTALL_PREFIX=/usr ./
 make
 make install
