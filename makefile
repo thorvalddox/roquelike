@@ -13,3 +13,6 @@ main: main.cpp level.o
 
 level.o: level.cpp level.h
 	$(COMPILER) -c $< $(FLAGS) $(LIBS) $(INCLUDE)
+
+clean:
+	rm *.o
