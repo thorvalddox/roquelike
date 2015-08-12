@@ -15,11 +15,11 @@ main: clean build
 optimize: FLAGS+=-O2
 optimize: clean build
 
-build: src/main.o src/level.o src/gui.o src/game.o src/gameevent.o src/entity.o
+build: src/main.o src/level.o src/gui.o src/game.o src/gameevent.o src/entity.o  src/elements.o
 	$(COMPILER) $^ $(FLAGS) $(LIBS) $(INCLUDE)
 
 %.o: %.cpp
 	$(COMPILER) -c $< -o $@ $(FLAGS) $(LIBS) $(INCLUDE)
 
 clean:
-	rm src/*.o
+	rm -f src/*.o

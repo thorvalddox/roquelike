@@ -1,6 +1,7 @@
 #pragma once
 #include "rogue.h"
 #include <array>
+#include "elements.h"
 
 class Game;
 class Entity;
@@ -23,11 +24,12 @@ class Unit: public Entity
 {
 public:
 
-	std::array<Bool,15> active_buffs;
-	std::array<Bool,8> active_stats;
+	std::array<bool,15> active_buffs;
+	std::array<bool,8> active_stats;
 
 	bool get_buff(Buff) const;
 	bool get_stat(Stat) const;
+	bool apply_buff(Game *, Buff_apply);
 	~Unit() {}
 };
 

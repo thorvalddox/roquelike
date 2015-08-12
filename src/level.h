@@ -27,7 +27,7 @@ class Maze
 {
 public:
     Maze(int size);
-    void print(ostream *);
+    void print(ostream *) const;
 
     vector<vector<bool>> connections;
 private:
@@ -68,7 +68,7 @@ public:
     void setarea(Tile value, int x1,int y1, int x2, int y2, bool no_overwrite=false);
     bool gethidden(int x, int y) const;
     void sethidden(bool value,int x, int y);
-    void print(ostream*);
+    void print(ostream*) const ;
 
 private:
     void addroom(int brick_x, int brick_y);
