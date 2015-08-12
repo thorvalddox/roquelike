@@ -110,6 +110,7 @@ Code: array+ENUM + dinamix testing
 losing status effect is a functor in the game_loop (binary heap)
 
 Different status effects:
+
 |Effect | description|
 |:-|:-|
 |Snare| user can attack but not move|
