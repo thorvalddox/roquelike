@@ -19,8 +19,11 @@ using std::ostream;
 
 typedef uint8_t byte;
 
-enum class Tile {GROUND_ROOM, GROUND_CORRIDOR,
-     WALL, WATER, CLIFF, ROUGH, ICE, SPIKES};
+enum class Tile {
+    #define TILEINFO(name, position) name,
+    #include "tiles.x"
+    #undef TILEINFO
+ };
 
 int between(int min, int max);
 
@@ -28,7 +31,7 @@ class Maze
 {
 public:
     Maze(int size);
-    void print(ostream *);
+    void print(ostream *) const;
 
     vector<vector<bool>> connections;
 private:
@@ -65,11 +68,11 @@ public:
     Level(int bricks,int bricksize);
     void generate();
     Tile getpos(int x,int y) const;
-    void setpos(Tile vaclue, int x,int y);
+    void setpos(Tile value, int x,int y);
     void setarea(Tile value, int x1,int y1, int x2, int y2, bool no_overwrite=false);
     bool gethidden(int x, int y) const;
     void sethidden(bool value,int x, int y);
-    void print(ostream*);
+    void print(ostream*) const;
 
 private:
     void addroom(int brick_x, int brick_y);

@@ -6,7 +6,7 @@
 #include <allegro5/allegro_font.h>
 
 #define TICK_PER_S 40
-
+#define TILE_SIZE 16
 GUI::GUI()
 {
     al_init();
@@ -27,6 +27,11 @@ GUI::GUI()
     al_register_event_source(queue, al_get_display_event_source(display));
     al_register_event_source(queue, al_get_timer_event_source(timer));
     al_start_timer(timer);
+
+    viewport.view = Rectangle(0,0,640,480);
+
+    tiles = al_load_bitmap("Images/Phoebus_tileset.png");
+
 }
 
 GUI::~GUI()
@@ -37,7 +42,7 @@ GUI::~GUI()
 	al_unregister_event_source(queue, al_get_timer_event_source(timer));
 	al_destroy_event_queue(queue);
 
-
+	al_destroy_bitmap(tiles);
 	al_destroy_display(display);
 
 	al_uninstall_keyboard();
@@ -78,4 +83,29 @@ GUI_event GUI::next_event()
 			break;
 		}
 	}
+}
+
+void GUI::draw_tile(Rectangle source, Point destination)
+{
+	al_draw_bitmap_region(tiles, source.x, source.y, source.w, source.h, destination.x, destination.y, 0);
+}
+
+void GUI::draw_level(Level& l) 
+{
+	for (int x = viewport.view.x / TILE_SIZE; x < (viewport.view.x + viewport.view.w + TILE_SIZE - 1)/TILE_SIZE; x++)
+		for (int y = viewport.view.y / TILE_SIZE; y < (viewport.view.y + viewport.view.h + TILE_SIZE - 1)/TILE_SIZE; y++)
+		{
+			switch (l.getpos(x, y))
+			{
+				#define TILEINFO(name, position) case Tile::name: draw_tile(position, Point(x*TILE_SIZE - viewport.view.x, y*TILE_SIZE - viewport.view.y)); break;
+				#include "tiles.x"
+				#undef TILEINFO
+			}
+		}
+}
+
+void GUI::swap_buffer()
+{
+	al_flip_display();
+	viewport.view.x++;
 }

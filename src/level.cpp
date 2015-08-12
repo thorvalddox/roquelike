@@ -315,7 +315,7 @@ void Maze::generate()
     }
 }
 
-void Maze::print(ostream*out)
+void Maze::print(ostream*out) const
 {
     for (int y=0;y<size;y++)
     {

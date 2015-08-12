@@ -1,0 +1,10 @@
+// TILEINFO(Name          , sprite rectangles              )
+
+TILEINFO(GROUND_ROOM      , Rectangle(13*16,  3*16, 16, 16))
+TILEINFO(GROUND_CORRIDOR  , Rectangle(13*16,  3*16, 16, 16))
+TILEINFO(WALL             , Rectangle( 7*16, 13*16, 16, 16))
+TILEINFO(WATER            , Rectangle( 6*16,  8*16, 16, 16))
+TILEINFO(CLIFF            , Rectangle( 3*16,  1*16, 16, 16))
+TILEINFO(ROUGH            , Rectangle(14*16,  8*16, 16, 16))
+TILEINFO(ICE              , Rectangle(13*16,  8*16, 16, 16))
+TILEINFO(SPIKES           , Rectangle(12*16,  9*16, 16, 16))
