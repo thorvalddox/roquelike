@@ -10,9 +10,11 @@ Game::~Game()
 
 }
 
-void Game::addevent(game_event event)
-{
 
+void Game::addEvent(Action action, unsigned int delay)
+{
+	game_event event(action, current_time + delay);
+	priority_queue.add(event);
 }
 
 Action Game::nextEvent()

@@ -8,6 +8,8 @@
 #include <time.h>
 #include <string>
 
+#include "rogue.h"
+
 
 using std::vector;
 using std::set;

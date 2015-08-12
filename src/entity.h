@@ -42,6 +42,7 @@ public:
 class Enemy: public Unit
 {
 public:
+	
 	AI_type AI;
 	~Enemy(){}
 };

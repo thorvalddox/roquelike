@@ -2,7 +2,8 @@
 #include "level.h"
 #include "game.h"
 #include "gui.h"
-int main(int agrc, char *argv[])
+
+int main(int argc, char *argv[])
 {
     al_init();
     al_install_keyboard();
