@@ -14,7 +14,7 @@ There are different dungeons with different difficulty levels who each yield a t
 * ground
 * air
 
-There are 3 equip slots: passive, attack and activate. Each token gives a different skill dependent on the slot it is equipped in
+There are 3 equip slots: passive, attack and invoke. Each token gives a different skill dependent on the slot it is equipped in
 
 ### crafting
 
@@ -50,3 +50,68 @@ magma  + ice    +  light    -> star
 '''
 
 the total cost of a level 4 token is 78
+
+
+
+
+##Mechanics
+
+
+### clock turn-based
+
+All actions take time.
+
+All units have a clock. When they perform an action, the time needed is added to the clock.
+The unit with the lowest clock can move.
+
+Status effects also use this clock.
+
+default: move:60 attack:100
+
+###Battle
+
+Attack always hits -> default 10 dam
+Default 100 hp
+
+Only changed by statchanges and buffs.
+
+Also: actions (for data-driven healing) ??
+
+Every skill knows:
+* list of stat changes
+  * amounts
+* list of actions
+  * multipliers
+* list of buffs
+  * time
+* invoke type (if invoke skill)
+  * target/ self / area
+
+Applied when/to
+
+skill_type| stat | action | buff
+:--|:--|:--|:---
+passive | create/self | create/self | create/self  (always inf)
+attack  | create/self | on attack/target | on attack/target
+invoke  | N/A         | on invoke/depends | on invoke/depends
+
+### Stats
+* HEALTH
+* DAMAGE
+* MOVETIME
+* ATTACKTIME
+* VISION RANGE
+* ATTACK RANGE
+* REGEN_AMOUNT
+
+### Buffs
+
+Code: array+ENUM + dinamix testing
+losing status effect is a functor in the game_loop (binary heap)
+
+Different status effects:
+Effect | description
+------:|:----------
+Snare| user can attack but not move
+Silence| user can move but not attack/invoke
+NoHeal|user cannot regen
