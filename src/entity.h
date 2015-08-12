@@ -1,5 +1,6 @@
 #pragma once
 #include "rogue.h"
+#include <array>
 
 class Game;
 class Entity;
@@ -17,18 +18,16 @@ public:
 	virtual ~Entity() {}
 };
 
-struct struct_status
-{
-	unsigned blinded:1;
-	unsigned stunned:1;
-	unsigned slowed:1;
-	unsigned on_fire:1;
-};
 
 class Unit: public Entity
 {
 public:
-	struct_status status_effects;
+
+	std::array<Bool,15> active_buffs;
+	std::array<Bool,8> active_stats;
+
+	bool get_buff(Buff) const;
+	bool get_stat(Stat) const;
 	~Unit() {}
 };
 
