@@ -1,0 +1,7 @@
+#Basic gitignore
+
+*.o
+*.out
+*.a
+*.so
+
