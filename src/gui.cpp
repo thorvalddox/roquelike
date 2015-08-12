@@ -5,8 +5,7 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_font.h>
 
-#define TICK_PER_S 40
-#define TILE_SIZE 16
+#define TICK_PER_S 60
 GUI::GUI()
 {
     al_init();
@@ -104,8 +103,12 @@ void GUI::draw_level(Level& l)
 		}
 }
 
+void GUI::draw_entity(Entity * e)
+{
+	draw_tile(e->sprite(), Point(e->p.x*TILE_SIZE - viewport.view.x, e->p.y*TILE_SIZE - viewport.view.y));
+}
+
 void GUI::swap_buffer()
 {
 	al_flip_display();
-	viewport.view.x++;
 }

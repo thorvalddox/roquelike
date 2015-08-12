@@ -2,6 +2,7 @@
 #include "rogue.h"
 #include <allegro5/allegro.h>
 #include "level.h"
+#include "entity.h"
 
 class GUI
 {
@@ -20,6 +21,7 @@ public:
 	GUI();
 	~GUI();
 	void draw_level(Level& l);
+	void draw_entity(Entity * e);
 	void swap_buffer();
 	GUI_event next_event();
 };

@@ -20,6 +20,7 @@ using std::ostream;
 typedef uint8_t byte;
 
 enum class Tile {
+    //X macro's
     #define TILEINFO(name, position) name,
     #include "tiles.x"
     #undef TILEINFO

@@ -1,5 +1,6 @@
 #pragma once
 #include "entity.h"
+#include <memory>
 
 class Game;
 class Unit;
@@ -9,13 +10,17 @@ class Action
 private:
 public:
 	Game * game;
-	Unit * target;
+	std::shared_ptr<Unit> target;
 	int (* action) (Game *, Unit *);
 	
-	// [] (Game* game, Unit * unit) -> int {return 0;}
+	//LAMBDA: 
+	//[buff] (Game* game, Unit * unit) -> int 
+	//	{
+	//		return buff;
+	//	}
 
 	Action(Game * game, Unit * target, int (*action) (Game *, Unit *)): game(game), target(target), action(action){}
-	int execute() {return action(game, target);}
+	int execute() {return action(game, target.get());}
 };
 
 class game_event 

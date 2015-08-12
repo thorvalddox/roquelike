@@ -1,5 +1,7 @@
 #pragma once
 
+#define TILE_SIZE 16
+
 enum direction
 {
 	NORTH = 0, EAST, SOUTH, WEST
