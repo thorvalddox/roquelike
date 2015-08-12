@@ -16,6 +16,8 @@ public:
 	~Game();
 
 	void step();
-	Action nextevent();
+	Action nextEvent();
+	void addEvent(Action action, unsigned int delay);
+
 
 };

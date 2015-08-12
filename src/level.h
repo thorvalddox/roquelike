@@ -9,6 +9,8 @@
 #include <array>
 #include <string>
 
+#include "rogue.h"
+
 
 using std::vector;
 using std::set;

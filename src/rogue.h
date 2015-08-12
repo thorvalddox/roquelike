@@ -9,6 +9,14 @@ struct Point
 {
 	int x, y;
 	Point(int x, int y):x(x), y(y) {}
+	Point() = default;
+};
+
+struct TilePos
+{
+	unsigned x, y;
+	TilePos(unsigned x, unsigned y): x(x), y(y) {}
+	TilePos() = default;
 };
 
 struct GUI_event
