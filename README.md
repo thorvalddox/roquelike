@@ -121,18 +121,18 @@ Effect | description | Tags
 Snare   | user can attack but not move | I
 Silence | user can move but not attack/invoke | I
 NoHeal  | user cannot regen | I
-Flaming | enemies attacking user get half damage |
-Clouded | No collision with entities |
-Immume  | Disable some other status effects |
-Swim    | Can move trough water |
-Walk    | No slowdown from rough terrain/ ice |
-Jump    | Can jump over cliffs |
-Nimble  | No damage from spikes |
+Flaming | enemies attacking user get half damage | *
+Clouded | No collision with entities | *
+Immume  | Disable some other status effects | *
+Swim    | Can move trough water | *
+Walk    | No slowdown from rough terrain/ ice | *
+Jump    | Can jump over cliffs | *
+Nimble  | No damage from spikes | *
 Confused | ??? | EI
-Bastion | High defense , no movement |
-Growth  | High healing, no movement, no attack |
+Bastion | High defense , no movement | *
+Growth  | High healing, no movement, no attack | *
 Lighthouse | All enemies know your position | P
-Vampire | Lose health over time but heal damage |
+Vampire | Lose health over time but heal damage | *
 
 
 
@@ -148,11 +148,11 @@ Tags:
 
 Action | description | multipliers | Tags
 :-|:-|:-|:-
-Bomb  | damage surrounding area | damage amount |
-Damage | damage target | damage amount |
-Heal | heal target | hp |
-LifeSteal | do normal damage | percent regen (0-100) |
-Knockback | move the enemy away | distance |
+Bomb  | damage surrounding area | damage amount | *
+Damage | damage target | damage amount | *
+Heal | heal target | hp | *
+LifeSteal | do normal damage | percent regen (0-100) | *
+Knockback | move the enemy away | distance | *
 Place | places wall | time stays | T
 Healing ring | places healing ring 3x3 | time stays | T
 Spike | places spikes | *none* | T
