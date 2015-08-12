@@ -174,11 +174,11 @@ void Level::create_corr_horiz()
         {
             corr_h(r,nextroom);
         }
-        else if (!(rand() % 3)) {
+        else if (!(rand() % 5)) {
             setarea(Tile::WATER,
                 r.right+1,r.right_corr_y,nextroom.left-1,nextroom.left_corr_y);
         }
-        else if (!(rand() % 3)) {
+        else if (!(rand() % 4)) {
             corr_h(r,nextroom,true);
         }
 
