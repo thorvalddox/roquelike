@@ -111,8 +111,8 @@ losing status effect is a functor in the game_loop (binary heap)
 
 Different status effects:
 
-|Effect | description|
-|:-|:-|
-|Snare| user can attack but not move|
-|Silence| user can move but not attack/invoke|
-|NoHeal|user cannot regen|
+Effect | description
+:-|:-
+Snare   | user can attack but not move
+Silence | user can move but not attack/invoke
+NoHeal  |user cannot regen
