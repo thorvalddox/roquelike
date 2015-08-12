@@ -222,7 +222,7 @@ void Level::create_corr_vert()
     }
 }
 
-void Level::print(ostream * out)
+void Level::print(ostream * out) const
 {
     maze.print(out);
     *out << "\n";
