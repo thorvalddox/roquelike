@@ -21,33 +21,33 @@ There are 3 equip slots: passive, attack and invoke. Each token gives a differen
 the 3 default tokens can be crafted to a leveling token. This leveling token can be used to craft 2 lv1 tokens to a level 2 token.
 The level 2 tokens are the following:
 
-'''
+```
 water + ground -> life
 water +  air   -> cold
 air + ground   -> heat
-'''
+```
 
 The total cost of a level2 token is 5
 
 5 leveling token can be combined to a super leveling token. A super leveling token can be used to
 combine a level 1 adn a level 2 token to a level 3 token.
 
-'''
+```
         ground       ocean        sky
 life    plants       blood        light
 heat    magma        clouds       lightning
 cold    metal        ice          storm
-'''
+```
 
 the total cost of a level 3 token is 21
 
 Super leveling tokens can also be used to craft 3 level 3 tokens to a level 4 token.
 
-'''
+```
 plants + clouds + storm     -> nature
 metal  + blood  + lightning -> machine
 magma  + ice    +  light    -> star
-'''
+```
 
 the total cost of a level 4 token is 78
 
@@ -110,8 +110,8 @@ Code: array+ENUM + dinamix testing
 losing status effect is a functor in the game_loop (binary heap)
 
 Different status effects:
-Effect | description
-------:|:----------
-Snare| user can attack but not move
-Silence| user can move but not attack/invoke
-NoHeal|user cannot regen
+|Effect | description|
+|------:|:----------|
+|Snare| user can attack but not move|
+|Silence| user can move but not attack/invoke|
+|NoHeal|user cannot regen|
