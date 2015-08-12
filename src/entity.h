@@ -1,5 +1,5 @@
 #pragma once
-#include "enum.h"
+#include "rogue.h"
 
 class Game;
 class Entity;
@@ -7,19 +7,14 @@ class Unit;
 class Player;
 class Enemy;
 
-typedef int (*) (Game *, Enemy *, direction *) AI_type;
-
-enum entity_type
-{
-	ENTITY_PLAYER, ENTITY_ENEMY, ENTITY_STAIRS, ENTITY_TREASURE;
-};
-
-
+typedef int (*AI_type) (Game *, Enemy *, direction *) ;
 
 class Entity
 {
-	Entity_type::type type;
-	int x, y;
+	enum {ENTITY_PLAYER, ENTITY_ENEMY, ENTITY_STAIRS, ENTITY_TREASURE} type;
+public:
+	Point p;
+	virtual ~Entity() {}
 };
 
 struct struct_status
@@ -32,17 +27,22 @@ struct struct_status
 
 class Unit: public Entity
 {
+public:
 	struct_status status_effects;
+	~Unit() {}
 };
 
 class Player: public Unit
 {
-
+public:
+	~Player(){}
 };
 
 
 
 class Enemy: public Unit
 {
+public:
 	AI_type AI;
+	~Enemy(){}
 };

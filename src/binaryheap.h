@@ -10,6 +10,6 @@ namespace lib
 	public:
 		binaryheap();
 		void add (T);
-		int extractmin();
+		T extractmin();
 	};
 }
