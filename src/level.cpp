@@ -42,12 +42,20 @@ Level::Level(int brick,int bricksize):
 
 Tile Level::getpos(int x, int y) const
 {
-    return (Tile)(this->data[x*size + y] & 0x7f);
+    if ((x < size) & (y < size) & (x > 0) & (y > 0))
+    {
+        return (Tile)(this->data[x*size + y] & 0x7f);
+    }   
+    else
+    {
+        return Tile::WALL;
+    }
 }
 
 bool Level::gethidden(int x, int y) const
 {
-    return !!(this->data[x*size + y] & 0x80);
+        return !!(this->data[x*size + y] & 0x80);
+
 }
 
 void Level::setpos(Tile value, int x, int y)

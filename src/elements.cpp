@@ -1,8 +1,18 @@
-#include elements.h
+#include "elements.h"
 
 Element::Element(const string name):
     name(name),
-    level(level)
+    level(0),
+    recipe({})
+{
+    //
+}
+
+
+Element::Element(int level,const string name,const elementset recipe):
+    name(name),
+    level(level),
+    recipe(recipe)
 {
     //
 }
