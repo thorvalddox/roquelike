@@ -57,7 +57,10 @@ int Execute_enemy_AI(Game * game, Unit * target)
 		for (direction dir: res)
 		{
 			if (target.canmove(game, dir))
+			{
 				target.move(game, dir);
+				break;
+			}
 		}
 
 		case 0:
