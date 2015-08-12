@@ -85,24 +85,29 @@ Every skill knows:
 * list of buffs
   * time
 * invoke type (if invoke skill)
-  * target/ self / area
+  * target/ self / area / surround
+  * cooldown
+* passive type
+  * cooldown
 
 Applied when/to
 
 skill_type| stat | action | buff
 :--|:--|:--|:---
-passive | create/self | create/self | create/self  (always inf)
+passive | create/self | on tick /self | create/self  (always inf)
 attack  | create/self | on attack/target | on attack/target
 invoke  | N/A         | on invoke/depends | on invoke/depends
 
 ### Stats
 * HEALTH
 * DAMAGE
-* MOVETIME
-* ATTACKTIME
-* VISION RANGE
-* ATTACK RANGE
+* MOVE_TIME
+* ATTACK_TIME
+* VISION_RANGE
+* ATTACK_RANGE
 * REGEN_AMOUNT
+* LOSE_HUNGER
+
 
 ### Buffs
 
@@ -111,8 +116,48 @@ losing status effect is a functor in the game_loop (binary heap)
 
 Different status effects:
 
-Effect | description
-:-|:-
-Snare   | user can attack but not move
-Silence | user can move but not attack/invoke
-NoHeal  |user cannot regen
+Effect | description | Tags
+:-|:-|--
+Snare   | user can attack but not move | I
+Silence | user can move but not attack/invoke | I
+NoHeal  | user cannot regen | I
+Flaming | enemies attacking user get half damage |
+Clouded | No collision with entities |
+Immume  | Disable some other status effects |
+Swim    | Can move trough water |
+Walk    | No slowdown from rough terrain/ ice |
+Jump    | Can jump over cliffs |
+Nimble  | No damage from spikes |
+Confused | ??? | EI
+Bastion | High defense , no movement |
+Growth  | High healing, no movement, no attack |
+Lighthouse | All enemies know your position | P
+Vampire | Lose health over time but heal damage |
+
+
+
+
+
+
+Tags:
+* I: immume prevents this effect
+* E: enemies only
+* P: player only
+
+## actions
+
+Action | description | multipliers | Tags
+:-|:-|:-|:-
+Bomb  | damage surrounding area | damage amount |
+Damage | damage target | damage amount |
+Heal | heal target | hp |
+LifeSteal | do normal damage | percent regen (0-100) |
+Knockback | move the enemy away | distance |
+Place | places wall | time stays | T
+Healing ring | places healing ring 3x3 | time stays | T
+Spike | places spikes | *none* | T
+
+Tags:
+* T: doesn't need target
+
+Actions contain the invoker and the target, to make sure things like life_steal and knockback work correctly
